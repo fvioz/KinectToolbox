@@ -1,0 +1,24 @@
+﻿<Window x:Class="KinectToolbox.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:k="http://schemas.microsoft.com/kinect/2013"
+        Title="Kinect Toolkit" Height="768" Width="1024">
+    <Grid>
+        <k:KinectSensorChooserUI HorizontalAlignment="Center" VerticalAlignment="Top" Name="sensorChooserUi"></k:KinectSensorChooserUI>
+
+        <k:KinectRegion Name="kinectRegion">
+            <Grid>
+                <k:KinectTileButton Label="Púlsame!" Click="ButtonOnClick" Margin="184,238,612,279"></k:KinectTileButton>
+                
+                <k:KinectCircleButton Label="Circle" HorizontalAlignment="Right" Height="200" Click="ButtonOnClick" Margin="0,258,211,279">Hi</k:KinectCircleButton>
+                
+                <k:KinectScrollViewer VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" VerticalAlignment="Bottom">
+                    <StackPanel Orientation="Horizontal" Name="scrollContent" />
+                </k:KinectScrollViewer>
+            </Grid>
+        </k:KinectRegion>
+
+        <k:KinectUserViewer VerticalAlignment="Top" HorizontalAlignment="Center" k:KinectRegion.KinectRegion="{Binding ElementName=kinectRegion}" Height="100" />
+
+    </Grid>
+</Window>
